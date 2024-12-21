@@ -1,0 +1,19 @@
+.parts{
+    position: absolute;
+    bottom: -45px; 
+    left: 210px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    border: 12px solid rgb(167, 173, 179);
+    z-index: 1;
+}
+.person{
+    border-radius: 8px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 0; /* Set stacking order */
+}
+.about{
+    position: relative;
+    width: fit-content;
+    /* padding: 16px; */
+}
