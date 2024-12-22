@@ -26,14 +26,17 @@ const Navbar = () => {
   ];
 
   return (
-    <div style={{position:'sticky', top:'0', zIndex:'100'}} className="bg-base-100 text-slate-900">
-      <div className="navbar container mx-auto">
+    <div
+      style={{ position: "sticky", top: "0", zIndex: "100" }}
+      className="bg-base-100 text-slate-900"
+    >
+      <div className="container mx-auto navbar">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
+                className="w-5 h-5"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -73,11 +76,11 @@ const Navbar = () => {
             <img alt="logo" src="/assets/logo.svg" height={60} width={60} />
           </Link>
         </div>
-        <div className="navbar-center hidden lg:flex">
-          <div className="flex font-semibold items-center space-x-6">
+        <div className="hidden navbar-center lg:flex">
+          <div className="flex items-center space-x-6 font-semibold">
             {navItems?.map((navItem) => (
               <Link
-                href={"navItem.path"}
+                href={navItem.path}
                 key={navItem.path}
                 className="hover:text-primary"
               >
@@ -91,7 +94,7 @@ const Navbar = () => {
             <div className="indicator">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
+                className="w-5 h-5"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -110,7 +113,7 @@ const Navbar = () => {
           <button className="btn btn-ghost btn-circle">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
+              className="w-5 h-5"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -123,7 +126,12 @@ const Navbar = () => {
               />
             </svg>
           </button>
-          <button className="btn btn-outline btn-primary px-8 mx-2">Appointment</button>
+          <button className="px-8 mx-2 btn btn-outline btn-primary">
+            Appointment
+          </button>
+          <button type="submit" className="px-8 btn btn-primary">
+              <Link href="/login">Log In</Link>
+          </button>
         </div>
       </div>
     </div>

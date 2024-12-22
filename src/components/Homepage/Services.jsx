@@ -10,7 +10,7 @@ const Services = () => {
         <h2 className="text-5xl">Our Service Area</h2>
         <p>
           the majority have suffered alteration in some form, by injected
-          humour, or randomised words which don't look even slightly believable.{" "}
+          humour, or randomised words which don't look even slightly believable.
         </p>
         <div className="container grid grid-cols-1 gap-6 mx-auto mt-12 lg:grid-cols-3 md:grid-cols-2">
           {
