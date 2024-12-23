@@ -1,14 +1,28 @@
 "use client";
 import Image from "next/image";
 import React from "react";
+import { signIn } from "next-auth/react";
 import { FaFacebook } from "react-icons/fa6";
 import { FcGoogle } from "react-icons/fc";
 import { FaLinkedin } from "react-icons/fa";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const LoginPage = () => {
-  const handleLogin = async () => {
-    event.preventDefault9();
+  const router = useRouter();
+  const handleLogin = async (event) => {
+    event.preventDefault();
+    const email = event.target.email.value;
+    const password = event.target.password.value;
+    const resp = await signIn("credentials",
+       {
+      email,
+      password,
+      redirect: false,
+    });
+    if(resp.status === 200){
+      router.push('/');
+    }
   };
   return (
     <div className="container h-screen px-24 py-24 mx-auto">
@@ -33,7 +47,7 @@ const LoginPage = () => {
               type="text"
               name="email"
               placeholder="Your Email"
-              className="w-full my-3 input input-bordered"
+              className="w-full my-3 input inpus-bordered"
             />
 
             {/* For Password */}

@@ -1,3 +1,6 @@
+"use client";
+import { useSession } from "next-auth/react";
+import { signOut} from "next-auth/react";
 import Link from "next/link";
 import React from "react";
 
@@ -24,6 +27,9 @@ const Navbar = () => {
       path: "/contact",
     },
   ];
+
+  const session = useSession();
+  console.log(session);
 
   return (
     <div
@@ -129,9 +135,15 @@ const Navbar = () => {
           <button className="px-8 mx-2 btn btn-outline btn-primary">
             Appointment
           </button>
-          <button type="submit" className="px-8 btn btn-primary">
+          {!session.data ? 
+            <button type="submit" className="px-8 btn btn-primary">
               <Link href="/login">Log In</Link>
-          </button>
+            </button>
+           : 
+            <button className="px-8 btn btn-primary" onClick={() => signOut()}>
+              Log Out
+            </button>
+          }
         </div>
       </div>
     </div>
